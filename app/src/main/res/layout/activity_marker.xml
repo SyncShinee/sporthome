@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/selectcity">
+
+
+        <TextView
+            android:id="@+id/locate_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textSize="20dp"
+            android:text="请选择所在城市" />
+
+
+        <Button
+            android:id="@+id/chose_city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="选择城市" />
+
+        <ImageButton
+            android:id="@+id/btn_locate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/locate" />
+
+
+    </LinearLayout>
+
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/dkgray"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <SeekBar-->
+<!--            android:id="@+id/alphaBar"-->
+<!--            android:layout_width="155dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="2dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:max="10"-->
+<!--            android:progress="10" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/animation"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="2dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:checked="true"-->
+<!--            android:text="Marker添加动画"-->
+<!--            android:textColor="@color/white" />-->
+<!--    </LinearLayout>-->
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/selectcity">
+
+    </com.baidu.mapapi.map.MapView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/dkgray"
+        android:orientation="vertical"
+        android:layout_below="@id/selectcity"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/btn">
+        <Button
+            android:id="@+id/btn_basket"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:onClick="basketOverlay"
+            android:text="篮球"
+            android:textColor="@color/white" />
+        <Button
+            android:id="@+id/btn_football"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:onClick="footBallOverlay"
+            android:text="足球"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ui_size" />
+        <Button
+            android:id="@+id/btn_baseball"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:onClick="baseballOverlay"
+            android:text="羽毛球"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ui_size" />
+
+        <Button
+            android:id="@+id/btn_all"
+            android:layout_width="60dp"
+            android:layout_height="0dp"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector"
+            android:onClick="resetOverlay"
+            android:text="全部场所"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ui_size" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_recover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_selector"
+        android:layout_below="@id/selectcity"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:onClick="flushOverlay"
+        android:text="重新搜索该区域"
+        android:textColor="@color/white"
+        android:textSize="@dimen/ui_size" />
+
+    <sporthome.demo.gallery.SpeedRecyclerView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/card_recycler"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>
